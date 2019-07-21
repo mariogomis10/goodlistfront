@@ -1,0 +1,8 @@
+<div class="form-add-category">
+  <form (ngSubmit)="save()">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Nom de la categorie :" name="name" required="required" [(ngModel)]="category.name">
+    </mat-form-field>
+    <button type="submit" mat-raised-button name="btnaddliste" >Ajouter</button>
+  </form>
+</div>

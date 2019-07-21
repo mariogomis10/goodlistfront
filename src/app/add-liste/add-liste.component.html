@@ -1,0 +1,8 @@
+<div class="form-add-liste">
+  <form (ngSubmit)="save()">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Nom de la liste :" name="name" required="required" [(ngModel)]="liste.name">
+    </mat-form-field>
+    <button type="submit" mat-raised-button name="btnaddliste" >Ajouter</button>
+  </form>
+</div>

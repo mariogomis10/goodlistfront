@@ -1,0 +1,15 @@
+<mat-card class="liste-card">
+  <mat-card-header>
+    <mat-card-title>
+      {{liste.name}}
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item >Modifier</button>
+        <button mat-menu-item (click)="supprimer(liste.id)">Supprimer</button>
+      </mat-menu>
+    </mat-card-title>
+    <mat-card-subtitle>{{liste.date}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>GoodList</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Accueil</a>
+
+      <!----------------------Nested Menu----Liste--------------->
+      <a mat-list-item [matMenuTriggerFor]="listes" >Liste</a>
+      <mat-menu #listes="matMenu">
+        <button mat-menu-item routerLink="/listes">Mes listes</button>
+        <button mat-menu-item routerLink="/addliste" >Nouvelle liste</button>
+        <button mat-menu-item>Listes partagées</button>
+      </mat-menu>
+      <!----------------------Nested Menu------------------------>
+
+      <!----------------------Nested Menu----Produits--------------->
+      <a mat-list-item [matMenuTriggerFor]="products" >Produits</a>
+      <mat-menu #products="matMenu">
+        <button mat-menu-item routerLink="/products">Mes listes</button>
+        <button mat-menu-item routerLink="/addproduct" >Nouveau produit</button>
+      </mat-menu>
+      <!----------------------Nested Menu--------------------------->
+
+      <!----------------------Nested Menu----Categories--------------->
+      <a mat-list-item [matMenuTriggerFor]="categories" >Categories</a>
+      <mat-menu #categories="matMenu">
+        <button mat-menu-item routerLink="/categories">Categories</button>
+        <button mat-menu-item routerLink="/addcategory" >Nouvelle categorie</button>
+      </mat-menu>
+      <!----------------------Nested Menu----------------------------->
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>GoodList</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
